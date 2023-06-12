@@ -44,16 +44,51 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 
 ## Program:
+1. Decoder:
+```
+module exp8a(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c ;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&(c));
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule 
+```
 
 
+2.Encoder:
+```
+module exp8b(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
+```
 ## RTL Schematic:
+1. Decoder:
+
+![decoder](https://github.com/BALA291/encoder-decoder/assets/120717501/276de7c9-a137-4ea3-ba64-44cc59d0eb75)
 
 
+2.Encoder:
 
+![encoder](https://github.com/BALA291/encoder-decoder/assets/120717501/41c959a6-4b1a-4088-81e1-5bffecab1f55)
 
 ## Timing Diagram:
+1. Decoder:
 
+![decoder time](https://github.com/BALA291/encoder-decoder/assets/120717501/2503f65b-8c2d-4ad1-96fb-8b9bdf1b113f)
 
+2.Encoder:
+
+![encoder time](https://github.com/BALA291/encoder-decoder/assets/120717501/77a1e513-00fc-4ac1-8040-40472cc4cee8)
 
 ## Result:
 Thus the decoder and encoder circuits are designed and implemented and the truth tables are verified.
